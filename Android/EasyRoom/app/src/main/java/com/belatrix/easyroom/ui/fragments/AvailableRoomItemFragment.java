@@ -13,7 +13,7 @@ import com.belatrix.easyroom.ui.BaseFragment;
 public class AvailableRoomItemFragment extends BaseFragment {
 
     private static final String ROOM_KEY = "_room_name";
-    
+
     private Room mRoom;
 
 
