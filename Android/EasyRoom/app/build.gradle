@@ -29,4 +29,5 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:22.2.1'
     compile 'com.squareup.retrofit:retrofit:1.9.0'
     compile 'com.google.code.gson:gson:2.3.1'
+    compile 'me.dm7.barcodescanner:zbar:1.7.2'
 }

@@ -1,11 +1,15 @@
 package com.belatrix.easyroom;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
+    public static final int SCAN_ID = 9;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,10 +32,23 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_scanner) {
+            Intent intent = new Intent(this, ScannerActivity.class);
+            startActivityForResult(intent, SCAN_ID);
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == SCAN_ID) {
+            String QRcode = data.getStringExtra(ScannerActivity.SCAN_INFO_RESULT);
+            //TODO call webservice to qr
+            Toast.makeText(this, "hola " + QRcode, Toast.LENGTH_LONG);
+        }
+
     }
 }
