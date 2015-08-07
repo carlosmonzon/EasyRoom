@@ -36,4 +36,12 @@ public class Room implements Parcelable {
             return new Room[size];
         }
     };
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

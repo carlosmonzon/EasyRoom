@@ -7,19 +7,20 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.belatrix.easyroom.R;
+import com.belatrix.easyroom.entities.Room;
 import com.belatrix.easyroom.ui.BaseFragment;
 
 public class AvailableRoomItemFragment extends BaseFragment {
 
-    private static final String ROOM_NAME_KEY = "_room_name";
+    private static final String ROOM_KEY = "_room_name";
+    
+    private Room mRoom;
 
-    private String mName;
 
-
-    public static AvailableRoomItemFragment newInstance(String name) {
+    public static AvailableRoomItemFragment newInstance(Room availableRoom) {
         AvailableRoomItemFragment fragment = new AvailableRoomItemFragment();
         Bundle bundle = new Bundle();
-        bundle.putString(ROOM_NAME_KEY, name);
+        bundle.putParcelable(ROOM_KEY, availableRoom);
         fragment.setArguments(bundle);
         return fragment;
     }
@@ -32,7 +33,7 @@ public class AvailableRoomItemFragment extends BaseFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mName = getArguments().getString(ROOM_NAME_KEY);
+            mRoom = getArguments().getParcelable(ROOM_KEY);
         }
     }
 
