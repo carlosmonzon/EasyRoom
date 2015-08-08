@@ -17,7 +17,6 @@ import java.util.List;
 
 public class AvailableRoomsFragment extends BaseFragment {
 
-    private List<Room> mAvailableRooms;
     private ViewPager mViewPager;
     private AvailableRoomsPagerAdapter mAdapter;
 
