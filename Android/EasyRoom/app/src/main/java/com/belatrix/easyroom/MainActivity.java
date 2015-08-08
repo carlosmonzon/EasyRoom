@@ -19,6 +19,10 @@ import com.belatrix.easyroom.webservices.NetworkingHelper;
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
+
 public class MainActivity extends AppCompatActivity {
 
     private RoomsAdapter mRoomsAdapter;
@@ -36,7 +40,17 @@ public class MainActivity extends AppCompatActivity {
 
         initUI();
 //        NetworkingHelper.getInstance().getRoomService().getRooms();
-        NetworkingHelper.getInstance().getRoomService().getRooms()
+//        NetworkingHelper.getInstance().getRoomService().getRooms(new Callback<String>() {
+//            @Override
+//            public void success(String string, Response response) {
+//
+//            }
+//
+//            @Override
+//            public void failure(RetrofitError error) {
+//                RetrofitError e = error;
+//            }
+//        });
 
     }
 
