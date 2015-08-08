@@ -22,7 +22,8 @@ public class NetworkingHelper {
     private static void init() {
         sHelper = new NetworkingHelper();
         RestAdapter restAdapter = new RestAdapter.Builder()
-                .setEndpoint("http://45.55.206.39:9999/api")
+                .setEndpoint("http://45.55.206.39:9999/")
+                .setLogLevel(RestAdapter.LogLevel.FULL)
                 .build();
         mRoomService = restAdapter.create(RoomService.class);
     }

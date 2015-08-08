@@ -4,8 +4,8 @@ import com.belatrix.easyroom.entities.Room;
 
 import java.util.List;
 
-import javax.security.auth.callback.Callback;
 
+import retrofit.Callback;
 import retrofit.http.GET;
 
 /**
@@ -13,7 +13,7 @@ import retrofit.http.GET;
  */
 public interface RoomService {
 
-    @GET("/room")
-    List<Room> getRooms();
+    @GET("/api/room")
+    void getRooms(Callback<String> callback);
 
 }
