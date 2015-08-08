@@ -1,4 +1,4 @@
-package com.belatrix.easyroom.ui.activities;
+package com.belatrix.easyroom.ui;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

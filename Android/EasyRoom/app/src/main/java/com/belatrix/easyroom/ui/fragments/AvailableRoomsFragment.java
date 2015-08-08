@@ -12,11 +12,11 @@ import com.belatrix.easyroom.adapter.AvailableRoomsPagerAdapter;
 import com.belatrix.easyroom.entities.Room;
 import com.belatrix.easyroom.ui.BaseFragment;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AvailableRoomsFragment extends BaseFragment {
 
-    private List<Room> mAvailableRooms;
     private ViewPager mViewPager;
     private AvailableRoomsPagerAdapter mAdapter;
 
@@ -38,11 +38,24 @@ public class AvailableRoomsFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_available_rooms, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_available_rooms, container, false);
+        mViewPager = (ViewPager) rootView.findViewById(R.id.vp_rooms);
+        return rootView;
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        mAdapter = new AvailableRoomsPagerAdapter(getChildFragmentManager(), getAvailableRooms());
+        mViewPager.setAdapter(mAdapter);
+    }
 
+    private List<AvailableRoomItemFragment> getAvailableRooms() {
+        List<AvailableRoomItemFragment> rooms = new ArrayList<>();
+        rooms.add(AvailableRoomItemFragment.newInstance(new Room("Nazca")));
+        rooms.add(AvailableRoomItemFragment.newInstance(new Room("Lima")));
+        rooms.add(AvailableRoomItemFragment.newInstance(new Room("Paracas")));
+        rooms.add(AvailableRoomItemFragment.newInstance(new Room("Macchu Picchu")));
+        return rooms;
     }
 }

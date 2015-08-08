@@ -4,7 +4,6 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="available_room_item">200dp</dimen>
 
-
     <dimen name="dimen_x1_5">5dp</dimen>
     <dimen name="dimen_x2_5">10dp</dimen>
     <dimen name="dimen_x3_5">15dp</dimen>
@@ -12,4 +11,6 @@
     <dimen name="dimen_x5_5">25dp</dimen>
     <dimen name="dimen_x6_5">30dp</dimen>
     <dimen name="dimen_x7_5">35dp</dimen>
+
+    <dimen name="list_room_item">?android:listPreferredItemHeight</dimen>
 </resources>
