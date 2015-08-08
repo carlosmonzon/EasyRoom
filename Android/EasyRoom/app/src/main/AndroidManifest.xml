@@ -3,7 +3,7 @@
     package="com.belatrix.easyroom" >
 
     <uses-permission android:name="android.permission.CAMERA" />
-
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -27,8 +27,8 @@
             android:label="@string/title_activity_reservation" >
         </activity>
         <activity
-            android:name=".ui.activities.DetailRoomActivity"
-            android:label="@string/title_activity_reservation" >
+                android:name=".ui.activities.DetailRoomActivity"
+                android:label="@string/title_activity_reservation" >
         </activity>
     </application>
 

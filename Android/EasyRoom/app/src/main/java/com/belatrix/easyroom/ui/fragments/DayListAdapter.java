@@ -1,20 +1,28 @@
 package com.belatrix.easyroom.ui.fragments;
 
 import com.belatrix.easyroom.R;
+import com.belatrix.easyroom.entities.Booking;
 import com.belatrix.easyroom.entities.DailyRoom;
+import com.belatrix.easyroom.entities.Room;
+import com.belatrix.easyroom.entities.User;
 
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.Date;
 import java.util.List;
 
 /**
  * Created by cmonzon on 07/08/15.
  */
-public class DayListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class DayListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements
+        View.OnClickListener {
 
     public static final int TYPE_RESERVED = 0;
 
@@ -22,8 +30,11 @@ public class DayListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     private final List<DailyRoom> listArray;
 
-    public DayListAdapter(List array) {
+    private Context mContext;
+
+    public DayListAdapter(List array, Context context) {
         this.listArray = array;
+        this.mContext = context;
     }
 
     @Override
@@ -45,6 +56,7 @@ public class DayListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         } else {
             View itemView = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.available_view, parent, false);
+            itemView.setOnClickListener(this);
             return new AvailableHolder(itemView);
         }
     }
@@ -57,15 +69,35 @@ public class DayListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
         } else if (holder instanceof AvailableHolder) {
             AvailableHolder availableHolder = (AvailableHolder) holder;
-
             availableHolder.start.setText(item.start);
             availableHolder.end.setText(item.end);
+            availableHolder.itemView.setTag(item);
         }
     }
 
     @Override
     public int getItemCount() {
         return listArray.size();
+    }
+
+    @Override
+    public void onClick(View v) {
+        DailyRoom dailyRoom = (DailyRoom) v.getTag();
+        Intent intent = new Intent(mContext, BookingActivity.class);
+
+        User user = new User("1", "cmonzon");
+        Room room = new Room(dailyRoom.roomTitle);
+        Date dateStart = new Date();
+
+        Date dateEnd = new Date();
+//        date.setTime();
+        Booking booking = new Booking(user, "Nueva Reserva", dateStart, dateEnd, room);
+
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(BookingActivity.BOOKING_OBJECT, booking);
+        bundle.putInt(BookingActivity.MODE_STATUS,BookingActivity.MODE_SUCCESS);
+        intent.putExtras(bundle);
+        mContext.startActivity(intent);
     }
 
 

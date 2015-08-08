@@ -12,11 +12,15 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.belatrix.easyroom.adapter.RoomsAdapter;
+import com.belatrix.easyroom.entities.Booking;
 import com.belatrix.easyroom.entities.Room;
+import com.belatrix.easyroom.entities.User;
 import com.belatrix.easyroom.ui.activities.DetailRoomActivity;
+import com.belatrix.easyroom.ui.fragments.BookingActivity;
 import com.belatrix.easyroom.webservices.NetworkingHelper;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -36,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
         initUI();
 //        NetworkingHelper.getInstance().getRoomService().getRooms();
-        NetworkingHelper.getInstance().getRoomService().getRooms()
+//        NetworkingHelper.getInstance().getRoomService().getRooms();
 
     }
 
@@ -87,9 +91,23 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == SCAN_ID) {
-            String QRcode = data.getStringExtra(ScannerActivity.SCAN_INFO_RESULT);
+            Intent intent = new Intent();
+//            String QRcode = data.getStringExtra(ScannerActivity.SCAN_INFO_RESULT);
             //TODO call webservice to qr
-            Toast.makeText(this, "hola " + QRcode, Toast.LENGTH_LONG);
+
+            User user = new User("1", "cmonzon");
+            Room room = new Room("Nazca");
+            Date dateStart = new Date();
+
+            Date dateEnd = new Date();
+//        date.setTime();
+            Booking booking = new Booking(user, "Nueva Reserva", dateStart, dateEnd, room);
+
+            Bundle bundle = new Bundle();
+            bundle.putParcelable(BookingActivity.BOOKING_OBJECT, booking);
+            bundle.putInt(BookingActivity.MODE_STATUS,BookingActivity.MODE_SUCCESS);
+            intent.putExtras(bundle);
+            startActivity(intent);
         }
 
     }

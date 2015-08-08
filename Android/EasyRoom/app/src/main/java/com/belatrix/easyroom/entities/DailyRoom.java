@@ -5,6 +5,14 @@ package com.belatrix.easyroom.entities;
  */
 public class DailyRoom {
 
+    public String userId;
+
+    public String userName;
+
+    public String id;
+
+    public String roomTitle;
+
     public String title;
 
     public String user;

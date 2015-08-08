@@ -52,7 +52,7 @@ public class BookingActivity extends BaseActivity {
 
     private void loadData() {
         tvUserName.setText(mBooking.getUser().getName());
-        tvRoom.setText(mBooking.getRoom().getName());
+        tvRoom.setText("Sala Nazca");
         tvEndDate.setText(mBooking.getEnd().toString());
         tvStartDate.setText(mBooking.getStart().toString());
     }

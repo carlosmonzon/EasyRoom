@@ -90,7 +90,7 @@
                 style="@style/Base.TextAppearance.AppCompat.Large" />
 
             <TextView
-                android:id="@+id/tv_room"
+                android:id="@+id/tv_room_name"
                 android:layout_below="@+id/tv_user_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -111,7 +111,7 @@
 
             <TextView
                 android:id="@+id/tv_desc"
-                android:layout_below="@+id/tv_room"
+                android:layout_below="@+id/tv_room_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dimen_x2_5"

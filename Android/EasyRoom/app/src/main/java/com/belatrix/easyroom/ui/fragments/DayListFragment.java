@@ -45,8 +45,6 @@ public class DayListFragment extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
         }
-
-
     }
 
     private void fillArray() {
@@ -57,12 +55,13 @@ public class DayListFragment extends Fragment {
             DailyRoom dailyRoom = new DailyRoom();
             dailyRoom.isFree = true;
             dailyRoom.start = buildHour(i);
+            dailyRoom.roomTitle = "Sala Nazca";
             dailyRoom.end = buildHour(i + 1);
             mDailyRooms.add(dailyRoom);
         }
 
         if (mRecyclerView != null) {
-            mAdapter = new DayListAdapter(mDailyRooms);
+            mAdapter = new DayListAdapter(mDailyRooms, getActivity());
             mRecyclerView.setAdapter(mAdapter);
         }
     }
@@ -80,7 +79,7 @@ public class DayListFragment extends Fragment {
         if (fragmentView != null) {
 
             Toolbar mToolbar = (Toolbar) fragmentView.findViewById(R.id.toolbar);
-            mToolbar.setTitle("Room Name");
+            mToolbar.setTitle("Sala Nazca");
             ((AppCompatActivity) getActivity()).setSupportActionBar(mToolbar);
             RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
             mRecyclerView = (RecyclerView) fragmentView
