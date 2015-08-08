@@ -3,6 +3,7 @@ import tornado.web
 import os.path
 import json
 import bson.json_util
+from bson.objectid import ObjectId
 from pymongo import MongoClient
 
 class MainHandler(tornado.web.RequestHandler):
@@ -10,16 +11,29 @@ class MainHandler(tornado.web.RequestHandler):
         self.write("This is EasyRoom")
 
 class ApiHandler(tornado.web.RequestHandler):
-    def get(self, elem):
+    def get(self, text):
         values = []
         client = MongoClient('mongodb://jorgeboneu:4343870@kahana.mongohq.com:10084/HLDB')
         db = client['HLDB']
-        collection = db[elem]
+        id = None
+        elems = text.split('/')
+        elem = elems[0]
+        if len(elems) > 1:
+          id = elems[1]
         
-        for item in collection.find({}).limit(100):
+        collection = db[elem]
+        print('id = '+str(elem))
+	elems = text.split('/')
+        if id == None:
+          for item in collection.find({}).limit(100):
             values.append(item)
-        self.write(json.dumps(values, default=bson.json_util.default))
+          self.write(json.dumps(values, default=bson.json_util.default))
+        else:
+          for item in collection.find({'_id':ObjectId(id)}).limit(100):
+            values.append(item)
+          self.write(json.dumps(values, default=bson.json_util.default))
 
+        
     def post(self, elem):
         client = MongoClient('mongodb://jorgeboneu:4343870@kahana.mongohq.com:10084/HLDB')
         db = client['HLDB']
