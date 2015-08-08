@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-
     <style name="AppTheme" parent="BaseTheme">
         <item name="android:actionBarPopupTheme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
         <item name="android:colorPrimary">@color/primaryColor</item>

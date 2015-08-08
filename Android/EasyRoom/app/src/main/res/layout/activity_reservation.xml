@@ -1,5 +1,165 @@
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:id="@+id/fragment"
-    android:name="com.belatrix.easyroom.ui.fragments.BookingFragment"
-    tools:layout="@layout/fragment_reservation" android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="@color/primaryDarkColor">
+
+    <TextView
+        android:id="@+id/tv_booking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_activity_reservation"
+        style="@style/Base.TextAppearance.AppCompat.Headline"
+        />
+
+    <RelativeLayout
+        android:id="@+id/success_container"
+        android:layout_below="@+id/tv_booking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/rl_booking_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimen_x3_5">
+
+            <TextView
+                android:id="@+id/tv_time_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/time_title"
+                style="@style/Base.TextAppearance.AppCompat.Large" />
+
+            <TextView
+                android:id="@+id/tv_start_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/tv_time_title"
+                android:layout_marginLeft="@dimen/dimen_x3_5"
+                style="@style/Base.TextAppearance.AppCompat.Large"
+                tools:text="9:00"/>
+
+            <TextView
+                android:id="@+id/tv_separator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/tv_start_date"
+                android:layout_marginLeft="@dimen/dimen_x1_5"
+                style="@style/Base.TextAppearance.AppCompat.Large"
+                android:text="-"/>
+
+            <TextView
+                android:id="@+id/tv_end_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/tv_separator"
+                android:layout_marginLeft="@dimen/dimen_x1_5"
+                style="@style/Base.TextAppearance.AppCompat.Large"
+                tools:text="10:00"/>
+
+            <TextView
+                android:id="@+id/tv_user_title"
+                android:layout_below="@+id/tv_time_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_x2_5"
+                android:text="@string/user_title"
+                style="@style/Base.TextAppearance.AppCompat.Large" />
+
+            <TextView
+                android:id="@+id/tv_user_name"
+                android:layout_below="@+id/tv_time_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/tv_user_title"
+                android:layout_marginLeft="@dimen/dimen_x3_5"
+                android:layout_marginTop="@dimen/dimen_x2_5"
+                tools:text="Pedro"
+                style="@style/Base.TextAppearance.AppCompat.Large" />
+
+            <TextView
+                android:id="@+id/tv_room_title"
+                android:layout_below="@id/tv_user_title"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="@dimen/dimen_x2_5"
+                android:layout_height="wrap_content"
+                android:text="@string/room_title"
+                style="@style/Base.TextAppearance.AppCompat.Large" />
+
+            <TextView
+                android:id="@+id/tv_room"
+                android:layout_below="@+id/tv_user_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_x2_5"
+                android:layout_toRightOf="@id/tv_room_title"
+                android:layout_marginLeft="@dimen/dimen_x3_5"
+                tools:text="Nazca"
+                style="@style/Base.TextAppearance.AppCompat.Large" />
+
+            <TextView
+                android:id="@+id/tv_desc_title"
+                android:layout_below="@id/tv_room_title"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="@dimen/dimen_x2_5"
+                android:layout_height="wrap_content"
+                android:text="Descripcion"
+                style="@style/Base.TextAppearance.AppCompat.Large" />
+
+            <TextView
+                android:id="@+id/tv_desc"
+                android:layout_below="@+id/tv_room"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_x2_5"
+                android:layout_toRightOf="@id/tv_desc_title"
+                android:layout_marginLeft="@dimen/dimen_x3_5"
+                tools:text="desc"
+                style="@style/Base.TextAppearance.AppCompat.Large" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_x7_5"
+            android:layout_marginTop="@dimen/dimen_x2_5"
+            android:layout_below="@id/rl_booking_description">
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:text="@string/cancel"
+                android:background="@color/primaryColor"
+                />
+
+            <android.support.v4.widget.Space
+                android:layout_height="match_parent"
+                android:layout_width="@dimen/dimen_x3_5"/>
+
+            <Button
+                android:id="@+id/btn_confirm"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:layout_height="match_parent"
+                android:text="@string/confirm"
+                android:background="@color/primaryColor"
+                />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/rl_error"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </FrameLayout>
+
+</RelativeLayout>
