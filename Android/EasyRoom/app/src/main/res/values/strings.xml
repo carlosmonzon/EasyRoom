@@ -3,7 +3,6 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-<<<<<<< HEAD
     <string name="title_activity_reservation">Confirma tu reserva:</string>
     <string name="time_title">Hora:</string>
     <string name="user_title">Usuario:</string>
