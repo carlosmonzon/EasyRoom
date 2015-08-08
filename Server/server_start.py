@@ -7,7 +7,7 @@ from pymongo import MongoClient
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
-        self.write("This is HL")
+        self.write("This is EasyRoom")
 
 class ApiHandler(tornado.web.RequestHandler):
     def get(self, elem):
@@ -16,7 +16,7 @@ class ApiHandler(tornado.web.RequestHandler):
         db = client['HLDB']
         collection = db[elem]
         
-        for item in collection.find():
+        for item in collection.find({}).limit(100):
             values.append(item)
         self.write(json.dumps(values, default=bson.json_util.default))
 
@@ -27,7 +27,8 @@ class ApiHandler(tornado.web.RequestHandler):
         input = json.loads(self.request.body)
         collection = db[elem]
         post_id = collection.insert(input)
-        self.write('{"ok":1}')
+        
+        self.write('{"ok":"' + str(post_id) +  '"}')
         #self.write(self.request.body)
 		
 
