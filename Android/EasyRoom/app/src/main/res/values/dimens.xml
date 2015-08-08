@@ -3,6 +3,7 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="available_room_item">200dp</dimen>
+    <dimen name="available_room_pager">200dp</dimen>
 
     <dimen name="dimen_x1_5">5dp</dimen>
     <dimen name="dimen_x2_5">10dp</dimen>

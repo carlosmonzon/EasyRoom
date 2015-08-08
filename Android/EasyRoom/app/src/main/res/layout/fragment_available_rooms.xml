@@ -4,6 +4,16 @@
      android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/tv_available"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textSize="20sp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        tools:text="Disponible 4 - 5"/>
+
     <android.support.v4.view.ViewPager
         android:id="@+id/vp_rooms"
         android:layout_width="match_parent"

@@ -6,11 +6,15 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.belatrix.easyroom.adapter.RoomsAdapter;
 import com.belatrix.easyroom.entities.Room;
+import com.belatrix.easyroom.ui.activities.DetailRoomActivity;
+import com.belatrix.easyroom.webservices.NetworkingHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,9 +34,23 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.tb_main);
         setSupportActionBar(toolbar);
 
-        lvRooms = (ListView) findViewById(R.id.lv_rooms);
+        initUI();
+//        NetworkingHelper.getInstance().getRoomService().getRooms();
+        NetworkingHelper.getInstance().getRoomService().getRooms()
+
+    }
+
+    private void initUI() {
         mRoomsAdapter = new RoomsAdapter(this, getRooms());
+        lvRooms = (ListView) findViewById(R.id.lv_rooms);
         lvRooms.setAdapter(mRoomsAdapter);
+        lvRooms.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                mRoomsAdapter.getItem(i);
+                startActivity(new Intent(MainActivity.this, DetailRoomActivity.class));
+            }
+        });
     }
 
     private List<Room> getRooms() {
