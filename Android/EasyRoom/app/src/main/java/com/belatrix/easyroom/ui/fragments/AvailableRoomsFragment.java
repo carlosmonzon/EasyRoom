@@ -6,6 +6,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.belatrix.easyroom.R;
 import com.belatrix.easyroom.adapter.AvailableRoomsPagerAdapter;
@@ -19,6 +20,7 @@ public class AvailableRoomsFragment extends BaseFragment {
 
     private ViewPager mViewPager;
     private AvailableRoomsPagerAdapter mAdapter;
+    private TextView tvAvailable;
 
 
     public static AvailableRoomsFragment newInstance() {
@@ -40,6 +42,7 @@ public class AvailableRoomsFragment extends BaseFragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_available_rooms, container, false);
         mViewPager = (ViewPager) rootView.findViewById(R.id.vp_rooms);
+        tvAvailable = (TextView) rootView.findViewById(R.id.tv_available);
         return rootView;
     }
 
@@ -48,6 +51,7 @@ public class AvailableRoomsFragment extends BaseFragment {
         super.onActivityCreated(savedInstanceState);
         mAdapter = new AvailableRoomsPagerAdapter(getChildFragmentManager(), getAvailableRooms());
         mViewPager.setAdapter(mAdapter);
+        tvAvailable.setText(getString(R.string.available_rooms, "4", "5"));
     }
 
     private List<AvailableRoomItemFragment> getAvailableRooms() {

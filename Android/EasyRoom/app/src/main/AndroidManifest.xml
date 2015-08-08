@@ -26,6 +26,10 @@
             android:name=".ui.fragments.BookingActivity"
             android:label="@string/title_activity_reservation" >
         </activity>
+        <activity
+            android:name=".ui.activities.DetailRoomActivity"
+            android:label="@string/title_activity_reservation" >
+        </activity>
     </application>
 
 </manifest>

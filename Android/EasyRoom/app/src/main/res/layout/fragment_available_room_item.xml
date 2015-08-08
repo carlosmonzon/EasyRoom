@@ -2,7 +2,7 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             android:background="@color/action_bar_blue"
+             android:background="@color/primaryColor"
              tools:context="com.belatrix.easyroom.ui.fragments.AvailableRoomItemFragment">
 
     <TextView

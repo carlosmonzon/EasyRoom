@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:xliff="http://schemas.android.com/apk/res-auto">
     <string name="app_name">EasyRoom</string>
 
     <string name="hello_world">Hello world!</string>
@@ -7,4 +7,6 @@
     <string name="time_title">Hora</string>
     <string name="user_title">Usuario</string>
     <string name="room_title">Sala</string>
+
+    <string name="available_rooms">Disponible de <xliff:g>%s</xliff:g> - <xliff:g>%s</xliff:g></string>
 </resources>
