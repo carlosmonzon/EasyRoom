@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == SCAN_ID) {
-            Intent intent = new Intent();
+            Intent intent = new Intent(this, BookingActivity.class);
 //            String QRcode = data.getStringExtra(ScannerActivity.SCAN_INFO_RESULT);
             //TODO call webservice to qr
 
