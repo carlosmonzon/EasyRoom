@@ -1,8 +1,26 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="AppTheme" parent="AppTheme">
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryDarkColor</item>
+        <item name="android:textColorPrimary">@color/primaryGrey</item>
+        <item name="colorAccent">@color/accentColor</item>
+        <item name="android:windowBackground">@color/windows_background</item>
+        <item name="android:colorBackground">@color/windows_background</item>
+        <item name="colorControlActivated">@color/primaryColor</item>
+        <item name="colorButtonNormal">@color/primaryColor</item>
+    </style>
+
+    <style name="Toolbar_Popup" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:textColorPrimary">#fff</item>
+        <item name="android:background">@color/background_material_light</item>
+    </style>
+    <style name="Toolbar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:background">@color/primaryColor</item>
+    </style>
 </resources>
