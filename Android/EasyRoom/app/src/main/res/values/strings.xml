@@ -3,8 +3,11 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_reservation">ReservationActivity</string>
-    <string name="time_title">Hora</string>
-    <string name="user_title">Usuario</string>
-    <string name="room_title">Sala</string>
+    <string name="title_activity_reservation">Confirma tu reserva:</string>
+    <string name="time_title">Hora:</string>
+    <string name="user_title">Usuario:</string>
+    <string name="room_title">Sala:</string>
+    <string name="confirm">Confirmar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="room_not_available">La sala no se encuentra disponible</string>
 </resources>
