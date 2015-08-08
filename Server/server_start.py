@@ -66,11 +66,12 @@ class QueryHandler(tornado.web.RequestHandler):
         
     def post(self, elem):
         client = MongoClient('mongodb://jorgeboneu:4343870@kahana.mongohq.com:10084/HLDB')
+        values = []
         db = client['HLDB']
         print(self.request.body)
         input = json.loads(self.request.body)
         
-        #collection = db[elem]
+        collection = db[elem]
         print('id = '+str(elem))
         #elems = text.split('/')
         for item in collection.find(input).limit(100):
