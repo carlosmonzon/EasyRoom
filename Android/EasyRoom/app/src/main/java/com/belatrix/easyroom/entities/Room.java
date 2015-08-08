@@ -10,6 +10,9 @@ public class Room implements Parcelable {
 
     private String name;
 
+    public Room (String name) {
+        this.name = name;
+    }
 
     protected Room(Parcel in) {
         name = in.readString();
