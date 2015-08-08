@@ -10,10 +10,6 @@
     <string name="confirm">Confirmar</string>
     <string name="cancel">Cancelar</string>
     <string name="room_not_available">La sala no se encuentra disponible</string>
-    <string name="title_activity_reservation">ReservationActivity</string>
-    <string name="time_title">Hora</string>
-    <string name="user_title">Usuario</string>
-    <string name="room_title">Sala</string>
 
     <string name="available_rooms">Disponible de <xliff:g>%s</xliff:g> - <xliff:g>%s</xliff:g></string>
 </resources>
