@@ -5,10 +5,11 @@ import json
 import bson.json_util
 from bson.objectid import ObjectId
 from pymongo import MongoClient
+#Developer Jorge Boneu Libert
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
-        self.write("This is EasyRoom")
+        self.write("This is SNG General purpose API")
 
 class ApiHandler(tornado.web.RequestHandler):
     def get(self, text):
